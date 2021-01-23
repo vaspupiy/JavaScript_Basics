@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.task{
+display: flex;
+justify-content: center;
+padding: 20px;
+}
+
+.elem{
+    padding: 10px 40px;
+}
+
+.list{
+    padding: 0 0 0 20px;
+}
+
+.text{
+    padding: 10px 0;
+}
