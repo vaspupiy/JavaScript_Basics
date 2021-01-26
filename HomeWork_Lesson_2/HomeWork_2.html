@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script defer src="Lesson_2_task_1.js"></script>
+    <script defer src="Lesson_2_task_2.js"></script>
+    <script defer src="Lesson_2_task_3.js"></script>
+    <script defer src="Lesson_2_task_4.js"></script>
+    <script defer src="Lesson_2_task_5.js"></script>
+    <script defer src="Lesson_2_task_6.js"></script>
+    <script defer src="Lesson_2_task_7.js"></script>
+    <script defer src="Lesson_2_task_8.js"></script> -->
+    <script>
+        "use strict";
+        alert("1. Дан код:\n" +
+            "Почему код даёт именно такие результаты?");
+        var a = 1, b = 1, c, d;
+        c = ++a;
+        alert('c = ++a; ' + c + ' Вначале увеличивается значение a на единицу, потом c присваивается значение a');
+        d = b++;
+        alert('d = b++; ' + d + ' Вначале d присваивается значение b, потом b увеличивается на 1');
+        c = (2 + ++a);
+        alert('c = (2 + ++a); ' + c + ' Вначале увеличивается значение a на единицу, потом к 2 прибавляется значение a...');
+        d = (2 + b++);
+        alert('d = (2 + b++); ' + d + ' Вначале к 2 прибавляется значение b, потом b увеличивается на ед');
+        alert('a= ' + a);
+        alert('b= ' + b);
+    </script>
+    <script>
+        "use strict";
+        alert('2. Чему будет равен x в примере ниже?\nvar a = 2;\nvar x = 1 + (a *= 2);');
+        var a = 2;
+        var x = 1 + (a *= 2); // a *= 2 то же самое что a = a * 2. Ответ 5
+        alert('a *= 2 то же самое что a = a * 2. Ответ ' + x);
+    </script>
+    <script>
+        "use strict";
+        alert('3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения.\n' +
+            '     Затем написать скрипт, который работает по следующему принципу:\n' +
+            '     если a и b положительные, вывести их разность;\n' +
+            ' если а и b отрицательные, вывести их произведение;\n' +
+            ' если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.');
+
+        function getRandomIntMinMax(minNum, maxNum) {
+            return Math.floor(Math.random() * (maxNum - minNum)) + minNum;  //max не вкл. min вкл.
+        }
+
+        function conditionMathOperation(a, b) {
+            if (a >= 0 && b >= 0) {
+                return a - b;
+            } else if (a < 0 && b < 0) {
+                return a * b;
+            } else {
+                return a + b;
+            }
+        }
+
+        const MIN = -5;
+        const MAX = 5;
+        var a, b;
+        a = getRandomIntMinMax(MIN, MAX + 1);
+        b = getRandomIntMinMax(MIN, MAX + 1);
+        var res = conditionMathOperation(a, b)
+        alert('a= ' + a + ' b= ' + b + ' результат выплнения ф-ии= ' + res);
+    </script>
+    <script>
+        "use strict";
+
+        alert(' 4. Присвоить переменной а значение в промежутке [0..15].\n' +
+            ' С помощью оператора switch организовать вывод чисел от a до 15.');
+
+        function getRandomIntMinMax(minNum, maxNum) {
+            return Math.floor(Math.random() * (maxNum - minNum)) + minNum;  //max не вкл. min вкл.
+        }
+
+        function concatFoo(ser, num) {
+            return ser + ' ' + num;
+        }
+
+        function fromAndTo(number) {
+            let series = '';
+            switch (number) {
+                case 0:
+                    series = concatFoo(series, number++);
+                case 1:
+                    series = concatFoo(series, number++);
+                case 2:
+                    series = concatFoo(series, number++);
+                case 3:
+                    series = concatFoo(series, number++);
+                case 4:
+                    series = concatFoo(series, number++);
+                case 5:
+                    series = concatFoo(series, number++);
+                case 6:
+                    series = concatFoo(series, number++);
+                case 7:
+                    series = concatFoo(series, number++);
+                case 8:
+                    series = concatFoo(series, number++);
+                case 9:
+                    series = concatFoo(series, number++);
+                case 10:
+                    series = concatFoo(series, number++);
+                case 11:
+                    series = concatFoo(series, number++);
+                case 12:
+                    series = concatFoo(series, number++);
+                case 13:
+                    series = concatFoo(series, number++);
+                case 14:
+                    series = concatFoo(series, number++);
+                case 15:
+                    return concatFoo(series, number++).trim();
+            }
+            return null;
+        }
+
+        const MIN = 0;
+        const MAX = 15;
+
+        let a = getRandomIntMinMax(MIN, MAX + 1);
+
+        alert('a = ' + a + ' результат ' + fromAndTo(a));
+
+    </script>
+    <title>HomeWork_2</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
