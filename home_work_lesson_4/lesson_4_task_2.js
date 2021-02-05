@@ -23,6 +23,19 @@ const productBasket = {
                 quantity: quantity,
             }
         )
+    },
+    // метод уменьшает quantity или удаляет продукт, если quantity становится <= 0
+    reduceProduct(id_product, quantity=1){
+        let itemProduct = this.products.find(itemProduct => itemProduct.id_product === id_product)
+        if (itemProduct){
+          if (itemProduct.quantity > quantity ){
+              itemProduct.quantity -= quantity;
+          }else {
+              let index = this.products.indexOf(itemProduct)
+              this.products.splice(index, 1)
+          }
+        }
+
     }
 };
 console.log(productBasket.products)
@@ -33,3 +46,7 @@ console.log(productBasket.products)
 productBasket.appendProduct(124, 'продукт2', 24, 2)
 console.log(productBasket.products)
 console.log(`Общая стоимость товаров: ${productBasket.countBasketPrice()}`)
+productBasket.reduceProduct(124, 1)
+console.log(productBasket.products)
+productBasket.reduceProduct(124, 1)
+console.log(productBasket.products)

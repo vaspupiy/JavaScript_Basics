@@ -26,3 +26,23 @@ console.log(convertNumberObject(23), typeof (convertNumberObject(23)));
 console.log(convertNumberObject(245), typeof (convertNumberObject(245)));
 console.log(convertNumberObject(1999), typeof (convertNumberObject(1999)));
 console.log(convertNumberObject(-1), typeof (convertNumberObject(-1)));
+
+// добавлено после просмотра лекции № 5
+function convertNumberObject_vr_lector(num) {
+    const obj = {}
+    if (0 <= num && num < 1000) {
+        obj.units = num % 10;
+        obj.tens =  Math.floor(num / 10) % 10;
+        obj.hundreds =  Math.floor(num / 100) % 100;
+        return obj
+
+    } else {
+        console.log('Введенное число выходит за диапазон от 0 до 999')
+        return obj
+    }
+}
+
+console.log(convertNumberObject_vr_lector(123))
+console.log(convertNumberObject_vr_lector(12))
+console.log(convertNumberObject_vr_lector(0))
+console.log(convertNumberObject_vr_lector(1234))
