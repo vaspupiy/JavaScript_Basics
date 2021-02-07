@@ -5,11 +5,11 @@ console.log('1. Создать функцию, генерирующую шахм
     'Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.')
 
 const setting = {
-    rowCount: 8,
-    cellCount: 8,
+    rowCount: 10,
+    cellCount: 10,
     blackCellColor: '#555',
-    whiteCellColor: '#aaa',
-    cellIndex: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',],
+    whiteCellColor: '#ccc',
+    cellIndex: ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '',],
 }
 
 const chessboard = {
@@ -27,22 +27,28 @@ const chessboard = {
     },
 
     initCells() {
-        this.containerElement.innerHTML = '';
+        this.containerElement.textContent = '';
         this.cellElements = [];
 
-        let isWhite = true
+        let isWhite = false
         for (let row = 0; row < this.setting.rowCount; row++) {
             const trElement = document.createElement("tr")
             this.containerElement.appendChild(trElement)
             isWhite = !(isWhite);
             for (let col = 0; col < this.setting.cellCount; col++) {
                 const cell = document.createElement('td')
-                if (isWhite) {
+                if (isWhite || col === 0 || col === 9 || row === 0 || row === 9) {
                     cell.style.backgroundColor = this.setting.whiteCellColor
                 } else {
                     cell.style.backgroundColor = this.setting.blackCellColor
                 }
-                cell.innerHTML = this.setting.cellIndex[col] + (8 - row);
+                if ((col === 0 || col === 9) && row !== 0 && row !== 9) {
+                    cell.textContent = '' + (9 - row);
+
+                }
+                if (row === 0 || row === 9){
+                    cell.textContent = this.setting.cellIndex[col];
+                }
                 trElement.appendChild(cell);
 
                 this.cellElements.push(cell);

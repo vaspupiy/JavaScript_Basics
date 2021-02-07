@@ -2,15 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>lesson_5_task_2</title>
+    <script src="lesson_5_task_2.js " defer></script>
+    <style>
+        .basket-block {
+            min-width: 150px;
+            border: 1px solid #000;
+            margin: 25px;
+            background: #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .basket-title {
+            font-stretch: ultra-expanded;
+            font-size: 30px;
+        }
+
+        .basket-inf {
+            margin: 25px;
+            font-size: 20px;
+        }
+
+        .basket-button {
+            background-color: beige;
+            margin: 25px;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <div class='container'>
-    <p>3. Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:</p>
+    <p>3. Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть
+        только div, в который будет вставляться корзина, сгенерированная на базе JS:</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;3.1. Пустая корзина должна выводить строку «Корзина пуста»;</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;3.2. Наполненная должна выводить «В корзине: n товаров на сумму m рублей».</p>
-    <div id="product_Basket"></div>
-    <script src="lesson_5_task_2.js"></script>
+    <div class="basket-block"></div>
 </div>
 </body>
 </html>
