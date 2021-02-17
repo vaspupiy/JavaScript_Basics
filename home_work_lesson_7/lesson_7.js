@@ -68,7 +68,7 @@ const map = {
         table.innerHTML = '';
 
         this.cells = {};
-        this.userCells = [];
+        this.usedCells = [];
 
         for (let row = 0; row < rowsCount; row++) {
             const tr = document.createElement('tr');
@@ -230,12 +230,46 @@ const status = {
     },
 };
 
+// const score = {
+//     total: null,
+//
+//     setTotal(value) {
+//         this.total = value
+//     },
+//     getTotal() {
+//         return this.total
+//     },
+//
+//     render() {
+//         const totalValue = document.querySelector('.score-area')
+//         totalValue.innerHTML = this.getTotal();
+//     }
+// };
+
 const score = {
     total: null,
+    count: null,
 
-    setTotal(value) {
-        this.total = value
+    init(){
+        function makeCounter() {
+            let currentState = -1;
+            return function () {
+                ++currentState
+                return currentState
+            }
+        }
+
+        this.count = makeCounter()
     },
+
+    getCount(){
+        return this.count()
+    },
+
+    setTotal() {
+        this.total = this.getCount()
+    },
+
     getTotal() {
         return this.total
     },
@@ -275,10 +309,11 @@ const game = {
     reset() {
         this.stop();
         this.snake.init(this.getStartSnakeBody(), 'up');
-        this.score.setTotal(this.snake.body.length - 1)
+        // this.score.setTotal(this.snake.body.length - 1)
+        this.score.init()
+        this.score.setTotal()
         this.food.setCoordinates(this.getRandomFreeCoordinates());
         this.barrier.setCoordinates(this.getRandomFreeCoordinates());
-        console.log(barrier)
         this.render();
     },
 
@@ -315,6 +350,7 @@ const game = {
 
         if (this.food.isOnPoint(this.snake.getNextStepHeadPoint())) {
             this.snake.growUp();
+            this.score.setTotal()
             this.food.setCoordinates(this.getRandomFreeCoordinates());
             this.barrier.setCoordinates(this.getRandomFreeCoordinates());
 
@@ -322,7 +358,7 @@ const game = {
         }
 
         this.snake.makeStep();
-        this.score.setTotal(this.snake.body.length - 1)
+        // this.score.setTotal(this.snake.body.length - 1)
         this.render();
     },
 
